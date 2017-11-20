@@ -53,6 +53,9 @@ USER 1001
 # Set the default port for applications built using this image
 EXPOSE 8080
 
+# Set java pt-br default settings
+ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8 -Duser.country=BR -Duser.language=pt -Duser.timezone=America/Sao_Paulo -Djava.net.preferIPv4Stack=true
+
 # Set the default CMD for the image
 # CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/opt/openshift/app.jar"]
 CMD ["usage"]
