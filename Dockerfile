@@ -4,7 +4,7 @@ MAINTAINER Jorge Morales <jmorales@redhat.com>
 # HOME in base image is /opt/app-root/src
 
 # Install build tools on top of base image
-# Java jdk 8, Maven 3.3, Gradle 2.6
+# Java jdk 8, Maven 3.3, Gradle 4.3.1
 RUN INSTALL_PKGS="tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel" && \
     yum install -y --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
@@ -21,7 +21,7 @@ RUN (curl -0 http://www.eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries
     ln -sf /usr/local/maven/bin/mvn /usr/local/bin/mvn && \
     mkdir -p $HOME/.m2 && chmod -R a+rwX $HOME/.m2
 
-ENV GRADLE_VERSION 2.6
+ENV GRADLE_VERSION 4.3.1
 RUN curl -sL -0 https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -o /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
     unzip /tmp/gradle-${GRADLE_VERSION}-bin.zip -d /usr/local/ && \
     rm /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
