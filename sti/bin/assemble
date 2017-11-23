@@ -90,7 +90,7 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
   pushd $LOCAL_SOURCE_DIR &> /dev/null
 
   if [ -z "$BUILDER_ARGS" ]; then
-    export BUILDER_ARGS="build -x test"
+    export BUILDER_ARGS="build --no-daemon -x test"
     # TODO: Specify setting file with -c sss
   fi
 
